@@ -24,6 +24,7 @@ GiamGiaMoiNgay::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  resources :products
 
   # Sample resource route with sub-resources:
   #   resources :products do
