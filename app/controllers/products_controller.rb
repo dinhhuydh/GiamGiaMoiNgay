@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
+  expose(:product)
+
   def index
   end
 
   def show
-    @product = Product.find_by_id(params[:id])
   end
 end

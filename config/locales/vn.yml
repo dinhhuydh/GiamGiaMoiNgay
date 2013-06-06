@@ -3,4 +3,6 @@
 
 vn:
   product:
-    name: 'Tên sản phẩm'
+    name: Tên sản phẩm
+    price: Giá hiện tại
+    public_date: Ngày chào hàng
