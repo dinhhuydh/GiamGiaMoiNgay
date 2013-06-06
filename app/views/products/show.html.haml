@@ -7,3 +7,12 @@
 %p
   = t('product.public_date')
   = product.public_date
+
+%p
+  = t('product.sale_off_time')
+  #count-down-time
+
+:javascript
+  $(function() {
+    $('#count-down-time').countdown({until: "+30m", compact: true});
+  });
