@@ -10,9 +10,12 @@
 
 %p
   = t('product.sale_off_time')
+  = product.next_sale_off_time
   #count-down-time
 
 :javascript
   $(function() {
-    $('#count-down-time').countdown({until: "+30m", compact: true});
+    var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
+
+    $('#count-down-time').countdown({until: nextSaleOffTime, compact: true});
   });
