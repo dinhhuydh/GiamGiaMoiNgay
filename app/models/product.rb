@@ -10,5 +10,6 @@ class Product < ActiveRecord::Base
     if next_time < Time.now
       next_time += 1.day
     end
+    next_time
   end
 end
