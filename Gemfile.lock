@@ -48,6 +48,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    friendly_id (4.0.9)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -119,6 +120,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   decent_exposure
+  friendly_id
   haml
   jquery-rails
   rails (= 3.2.13)

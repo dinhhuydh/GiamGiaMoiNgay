@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606131653) do
+ActiveRecord::Schema.define(:version => 20130608014258) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130606131653) do
     t.date     "public_date"
     t.float    "initial_price"
     t.datetime "public_time"
+    t.string   "slug"
   end
 
 end
