@@ -1,0 +1,5 @@
+= semantic_form_for product do |f|
+  = f.inputs
+  = f.semantic_fields_for :images do |image_f|
+    = image_f.inputs :photo, as: :file
+  = f.actions
