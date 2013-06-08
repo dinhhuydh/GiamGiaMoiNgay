@@ -11,6 +11,7 @@ gem 'decent_exposure'
 gem "friendly_id"
 gem "paperclip", "~> 3.0"
 gem 'activeadmin'
+gem 'formtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.

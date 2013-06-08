@@ -176,6 +176,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   decent_exposure
+  formtastic
   friendly_id
   haml
   jquery-rails (= 2.3.0)
