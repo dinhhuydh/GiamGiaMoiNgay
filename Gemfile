@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml'
 gem 'decent_exposure'
 gem "friendly_id"
+gem "paperclip", "~> 3.0"
 
 
 # Gems used only for assets and not required
