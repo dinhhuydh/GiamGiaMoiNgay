@@ -206,4 +206,7 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+  config.before_filter do
+    I18n.locale = 'en'
+  end
 end
