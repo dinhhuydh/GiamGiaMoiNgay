@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   attr_accessible :bought, :name, :price, :sale_by_day, :public_date,
-                  :initial_price, :public_time
+                  :initial_price, :public_time, :slug,
 
   validates_presence_of :name, :price, :sale_by_day, :public_date,
                         :initial_price, :public_time
