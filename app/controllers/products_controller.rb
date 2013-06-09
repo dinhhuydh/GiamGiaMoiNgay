@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   expose(:product)
+  expose(:products)
 
   def index
   end
