@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def follow(product)
     products_followers.create(product_id: product.id)
   end
+
+  def follow?(product)
+    products.include?(product)
+  end
 end

@@ -26,8 +26,13 @@
     = product.next_sale_off_time
     #count-down-time
 
-  %button.btn.btn-primary#follow
-    = t('product.watch')
+  - if current_user.follow?(product)
+    %button.btn.disabled
+      = t('product.watch')
+  - else
+    %button.btn.btn-primary
+      = t('product.watch')
+
   %button.btn.btn-primary
     = t('product.buy')
 
