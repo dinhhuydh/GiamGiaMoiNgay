@@ -1,22 +1,24 @@
-%p
-  = t('product.name')
-  = product.name
-%p
-  = t('product.price')
-  = product.price
-%p
-  = t('product.public_date')
-  = product.public_date
+.span3
+  = product_image(product)
+.span9
+  %strong
+    = product.name
+  %p
+    = t('product.price')
+    = product.price
+  %p
+    = t('product.public_date')
+    = product.public_date
 
-%p
-  = t('product.sale_off_time')
-  = product.next_sale_off_time
-  #count-down-time
+  %p
+    = t('product.sale_off_time')
+    = product.next_sale_off_time
+    #count-down-time
 
-%button
-  = t('product.watch')
-%button
-  = t('product.buy')
+  %button.btn.btn-primary
+    = t('product.watch')
+  %button.btn.btn-primary
+    = t('product.buy')
 
 :javascript
   $(function() {
