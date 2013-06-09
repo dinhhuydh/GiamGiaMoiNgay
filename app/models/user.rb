@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
 
   has_many :products_followers, dependent: :destroy, foreign_key: 'follower_id'
   has_many :products, through: :products_followers
+
+  def follow(product)
+    products_followers.create(product_id: product.id)
+  end
 end

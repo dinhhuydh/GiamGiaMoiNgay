@@ -32,4 +32,9 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
+  def follow
+    current_user.follow(product)
+    render nothing: true
+  end
 end

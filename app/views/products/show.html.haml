@@ -26,7 +26,7 @@
     = product.next_sale_off_time
     #count-down-time
 
-  %button.btn.btn-primary
+  %button.btn.btn-primary#follow
     = t('product.watch')
   %button.btn.btn-primary
     = t('product.buy')
@@ -36,4 +36,14 @@
     var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
 
     $('#count-down-time').countdown({until: nextSaleOffTime, compact: true});
+
+    $('#follow').click(function() {
+      alert('Ban se nhan thong bao khi gia san pham giam');
+      $.ajax({
+        url: "/products/#{product.id}/follow",
+        success: function() {
+          alert('Da theo doi');
+        }
+      })
+    })
   });
