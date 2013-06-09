@@ -181,6 +181,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   decent_exposure
+  devise
   formtastic
   friendly_id
   haml
