@@ -5,7 +5,9 @@ vn:
   product:
     name: Tên sản phẩm
     price: Giá hiện tại
+    initial_price: Giá ban đầu
     public_date: Ngày chào hàng
     sale_off_time: Lần giảm giá kế tiếp
     watch: Theo dõi giá
     buy: Mua ngay
+    already_descreased: Đã giảm
