@@ -13,6 +13,11 @@
   = product.next_sale_off_time
   #count-down-time
 
+%button
+  = t('product.watch')
+%button
+  = t('product.buy')
+
 :javascript
   $(function() {
     var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
