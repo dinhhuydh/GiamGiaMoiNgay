@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609114047) do
+ActiveRecord::Schema.define(:version => 20130609134203) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -68,6 +68,13 @@ ActiveRecord::Schema.define(:version => 20130609114047) do
     t.float    "initial_price"
     t.datetime "public_time"
     t.string   "slug"
+  end
+
+  create_table "products_followers", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "product_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

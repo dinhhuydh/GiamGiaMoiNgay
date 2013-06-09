@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  has_many :products_followers, dependent: :destroy, foreign_key: 'follower_id'
+  has_many :products, through: :products_followers
 end

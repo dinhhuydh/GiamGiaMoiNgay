@@ -12,6 +12,9 @@ class Product < ActiveRecord::Base
   has_many :images, :as => :owner, :dependent => :destroy
   accepts_nested_attributes_for :images
 
+  has_many :products_followers, dependent: :destroy
+  has_many :followers, through: :products_followers
+
   def next_sale_off_time
     next_time = public_time + eval("#{(Time.now.to_date - public_time.to_date).to_i}.day")
     if next_time < Time.now
