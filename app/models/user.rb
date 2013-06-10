@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :products_followers, dependent: :destroy, foreign_key: 'follower_id'
-  has_many :products, through: :products_followers
+  has_many :followed_products, through: :products_followers
   has_many :products_consumers, dependent: :destroy, foreign_key: 'consumer_id'
   has_many :bought_products, through: :products_consumers, source: :product
 
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def follow?(product)
-    products.include?(product)
+    followed_products.include?(product)
   end
 
   def buy(product)
