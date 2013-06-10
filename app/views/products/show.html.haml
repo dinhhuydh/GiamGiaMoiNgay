@@ -33,7 +33,7 @@
     %button.btn.btn-primary#follow
       = t('product.watch')
 
-  %button.btn.btn-primary
+  %button.btn.btn-primary#buy
     = t('product.buy')
 
 :javascript
@@ -49,6 +49,12 @@
         success: function() {
           alert('Da theo doi');
         }
+      })
+    })
+
+    $('#buy').click(function(){
+      $.ajax({
+        url: "/products/#{product.id}/buy",
       })
     })
   });

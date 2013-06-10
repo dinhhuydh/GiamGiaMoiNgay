@@ -38,4 +38,8 @@ class ProductsController < ApplicationController
     current_user.follow(product)
     render nothing: true
   end
+
+  def buy
+    current_user.buy(product)
+  end
 end

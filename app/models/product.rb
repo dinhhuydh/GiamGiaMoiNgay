@@ -14,6 +14,8 @@ class Product < ActiveRecord::Base
 
   has_many :products_followers, dependent: :destroy
   has_many :followers, through: :products_followers
+  has_many :products_consumers, dependent: :destroy
+  has_many :consumers, through: :products_consumers
 
   after_create :set_price_down_schedule
 
