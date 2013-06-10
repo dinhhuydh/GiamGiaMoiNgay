@@ -33,8 +33,12 @@
     %button.btn.btn-primary#follow
       = t('product.watch')
 
-  %button.btn.btn-primary#buy
-    = t('product.buy')
+  - if current_user.buy?(product)
+    %button.btn.disabled
+      = t('product.buy')
+  - else
+    %button.btn.btn-primary#buy
+      = t('product.buy')
 
 :javascript
   $(function() {
