@@ -34,4 +34,22 @@ describe User do
       }.to change(ProductsConsumer, :count).by(1)
     end
   end
+
+  describe '#order' do
+    before do
+      product.update_attribute(:aasm_state, 'public')
+    end
+
+    it "should change product's state to confirming" do
+      subject.order(product)
+      product.confirming?.should be_true
+    end
+
+    it 'should be in the order list of the product' do
+      expect {
+        subject.order(product)
+      }.to change(ProductsOrder, :count).by(1)
+    end
+
+  end
 end

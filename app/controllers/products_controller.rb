@@ -40,6 +40,6 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    current_user.buy(product)
+    current_user.order(product)
   end
 end

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :followed_products, through: :products_followers, source: :product
   has_many :products_consumers, dependent: :destroy, foreign_key: 'consumer_id'
   has_many :bought_products, through: :products_consumers, source: :product
+  has_many :products_orders, dependent: :destroy, foreign_key: 'user_id'
+  has_many :ordered_products, through: :products_orders, source: :product
 
   def follow(product)
     products_followers.create(product_id: product.id)
@@ -28,5 +30,14 @@ class User < ActiveRecord::Base
 
   def buy?(product)
     bought_products.include?(product)
+  end
+
+  def order(product)
+    product.be_confirming!
+    products_orders.create(product_id: product.id)
+  end
+
+  def order?(product)
+    ordered_products.include?(product)
   end
 end
