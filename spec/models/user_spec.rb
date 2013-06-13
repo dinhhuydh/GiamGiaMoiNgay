@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { create(:user) }
+  subject { create(:user) }
   let(:product) { create(:product) }
 
   it { should have_many(:products_followers) }
@@ -12,7 +12,7 @@ describe User do
   describe '#follow' do
     it 'should create a new relationship' do
       expect{
-        user.follow(product)
+        subject.follow(product)
       }.to change(ProductsFollower, :count).by(1)
 
     end
