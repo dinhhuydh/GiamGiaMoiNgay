@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  include AASM
+
   attr_accessible :name, :price, :sale_by_day,
                   :initial_price, :public_time, :slug,
                   :images, :images_attributes
@@ -18,6 +20,25 @@ class Product < ActiveRecord::Base
   has_many :consumers, through: :products_consumers
 
   after_create :set_price_down_schedule
+
+  aasm do
+    state :private, initial: true
+    state :public
+    state :confirming
+    state :sold
+
+    event :be_public do
+      transitions :from => :private, :to => :public
+    end
+
+    event :be_confirming do
+      transitions :from => :public, :to => :confirming
+    end
+
+    event :be_sold do
+      transitions :from => :confirming, :to => :sold
+    end
+  end
 
   def next_sale_off_time
     next_time = public_time + eval("#{(Time.now.to_date - public_time.to_date).to_i}.day")

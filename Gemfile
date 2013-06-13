@@ -15,6 +15,7 @@ gem 'formtastic'
 gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'delayed_job_active_record'
+gem 'aasm'
 
 # Gems used only for assets and not required
 # in production environments by default.
