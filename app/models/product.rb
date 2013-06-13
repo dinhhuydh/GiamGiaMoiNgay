@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  attr_accessible :bought, :name, :price, :sale_by_day,
+  attr_accessible :name, :price, :sale_by_day,
                   :initial_price, :public_time, :slug,
                   :images, :images_attributes
 
