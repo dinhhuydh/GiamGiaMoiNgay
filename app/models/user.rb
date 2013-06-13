@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def buy(product)
-    product.be_confirming!
+    product.be_sold!
     products_consumers.create(product_id: product.id)
   end
 

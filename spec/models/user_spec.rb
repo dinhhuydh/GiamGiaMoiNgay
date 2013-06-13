@@ -17,4 +17,21 @@ describe User do
 
     end
   end
+
+  describe '#buy' do
+    before do
+      product.update_attribute(:aasm_state, 'confirming')
+    end
+
+    it "should change product's state to sold" do
+      subject.buy(product)
+      product.sold?.should be_true
+    end
+
+    it 'should be the consumer of the product' do
+      expect {
+        subject.buy(product)
+      }.to change(ProductsConsumer, :count).by(1)
+    end
+  end
 end
