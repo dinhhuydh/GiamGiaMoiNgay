@@ -38,6 +38,7 @@
           .container-fluid.nav-collapse
             %ul.nav
               - if current_user
+                %li= link_to current_user.username, '#'
                 %li= link_to "Log out", destroy_user_session_path, method: :delete
               - else
                 %li= link_to "Log in", new_user_session_path

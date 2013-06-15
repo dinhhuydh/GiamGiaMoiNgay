@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :products_orders, dependent: :destroy, foreign_key: 'user_id'
   has_many :ordered_products, through: :products_orders, source: :product
 
+  after_create :set_default_username
+
   def follow(product)
     products_followers.create(product_id: product.id)
   end
@@ -39,5 +41,12 @@ class User < ActiveRecord::Base
 
   def order?(product)
     ordered_products.include?(product)
+  end
+
+  private
+
+  def set_default_username
+    self.username = email.split('@').first
+    save
   end
 end
