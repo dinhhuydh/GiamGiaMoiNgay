@@ -41,5 +41,6 @@ class ProductsController < ApplicationController
 
   def buy
     current_user.order(product)
+    render json: {ordersCount: product.orders.count}
   end
 end

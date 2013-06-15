@@ -38,7 +38,7 @@
       %button.btn.disabled
         = t('product.buy')
     - else
-      %button.btn.btn-primary#buy
+      %button.btn.btn-primary#buy(ng-click='buy()')
         = t('product.buy')
 
 :javascript
@@ -46,10 +46,4 @@
     var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
 
     $('#count-down-time').countdown({until: nextSaleOffTime, compact: true});
-
-    $('#buy').click(function(){
-      $.ajax({
-        url: "/products/#{product.id}/buy",
-      })
-    })
   });
