@@ -34,7 +34,7 @@
       %button.btn.btn-primary#follow(ng-click='follow()')
         = t('product.watch')
 
-    - if current_user.buy?(product)
+    - if current_user.order?(product)
       %button.btn.disabled
         = t('product.buy')
     - else
