@@ -1,60 +1,51 @@
-.span3
-  = product_image(product)
-  %button.btn.icon-eye-open
-    = product.followers.count
-.span9
-  %strong
-    = product.name
-  %p
-    = t('product.price')
-    = product.price
+#product(ng-controller="ProductsCtrl" data-product-id="#{product.id}" data-followers-count="#{product.followers.count}")
+  .span3
+    = product_image(product)
+    %button.btn.icon-eye-open
+      {{followersCount}}
+  .span8
+    %strong
+      = product.name
+    %p
+      = t('product.price')
+      = product.price
 
-  %p
-    = t('product.initial_price')
-    = product.initial_price
+    %p
+      = t('product.initial_price')
+      = product.initial_price
 
-  %p.lead.text-success
-    = t('product.already_descreased')
-    = product.initial_price - product.price
+    %p.lead.text-success
+      = t('product.already_descreased')
+      = product.initial_price - product.price
 
-  %p
-    = t('product.public_time')
-    = product.public_time
+    %p
+      = t('product.public_time')
+      = product.public_time
 
-  %p
-    = t('product.sale_off_time')
-    = product.next_sale_off_time
-    #count-down-time
+    %p
+      = t('product.sale_off_time')
+      = product.next_sale_off_time
+      #count-down-time
 
-  - if current_user.follow?(product)
-    %button.btn.disabled
-      = t('product.watch')
-  - else
-    %button.btn.btn-primary#follow
-      = t('product.watch')
+    - if current_user.follow?(product)
+      %button.btn.disabled
+        = t('product.watch')
+    - else
+      %button.btn.btn-primary#follow(ng-click='follow()')
+        = t('product.watch')
 
-  - if current_user.buy?(product)
-    %button.btn.disabled
-      = t('product.buy')
-  - else
-    %button.btn.btn-primary#buy
-      = t('product.buy')
+    - if current_user.buy?(product)
+      %button.btn.disabled
+        = t('product.buy')
+    - else
+      %button.btn.btn-primary#buy
+        = t('product.buy')
 
 :javascript
   $(function() {
     var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
 
     $('#count-down-time').countdown({until: nextSaleOffTime, compact: true});
-
-    $('#follow').click(function() {
-      alert('Ban se nhan thong bao khi gia san pham giam');
-      $.ajax({
-        url: "/products/#{product.id}/follow",
-        success: function() {
-          alert('Da theo doi');
-        }
-      })
-    })
 
     $('#buy').click(function(){
       $.ajax({

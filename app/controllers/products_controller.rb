@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 
   def follow
     current_user.follow(product)
-    render nothing: true
+    render json: {followersCount: product.followers.count}
   end
 
   def buy
