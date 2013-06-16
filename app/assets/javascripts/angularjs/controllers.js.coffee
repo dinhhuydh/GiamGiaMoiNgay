@@ -44,7 +44,4 @@
          .error((data) ->
            alert('There is something wrong. Please try again')
          )
-
 ]
-
-
