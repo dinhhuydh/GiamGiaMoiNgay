@@ -27,19 +27,28 @@
       = product.next_sale_off_time
       #count-down-time
 
-    - if current_user.follow?(product)
-      %button.btn.disabled
-        = t('product.watch')
+    - if current_user
+      - if current_user.follow?(product)
+        %a.btn.disabled
+          = t('product.watch')
+      - else
+        %a.btn.btn-primary#follow(ng-click='follow()')
+          = t('product.watch')
     - else
-      %button.btn.btn-primary#follow(ng-click='follow()')
+      %a.btn.btn-primary{:href => new_user_session_path('redirect_to' => product_path(product))}
         = t('product.watch')
 
-    - if current_user.order?(product)
-      %button.btn.disabled
-        = t('product.buy')
+    - if current_user
+      - if current_user.order?(product)
+        %a.btn.disabled
+          = t('product.buy')
+      - else
+        %a.btn.btn-primary#buy(ng-click='buy()')
+          = t('product.buy')
     - else
-      %button.btn.btn-primary#buy(ng-click='buy()')
+      %a.btn.btn-primary{:href => new_user_session_path('redirect_to' => product_path(product))}
         = t('product.buy')
+
 
 :javascript
   $(function() {
