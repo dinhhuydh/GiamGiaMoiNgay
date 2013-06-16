@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:index, :show]
+  before_filter :authenticate_admin_user!, only: [:new, :create, :edit, :update]
 
   expose(:product)
   expose(:products)
