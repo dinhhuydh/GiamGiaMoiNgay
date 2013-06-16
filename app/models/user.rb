@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
     ordered_products.include?(product)
   end
 
+  def admin?
+    role == 'admin'
+  end
+
   private
 
   def set_default_username
