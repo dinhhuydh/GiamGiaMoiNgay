@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
     session[:redirect_to] || root_path
   end
 
+  def authenticate_admin_user!
+    unless current_user.admin?
+      redirect_to root_path
+    end
+  end
+
   private
 
   def set_session
