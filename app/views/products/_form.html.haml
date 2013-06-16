@@ -1,10 +1,11 @@
 = semantic_form_for product do |f|
-  = f.inputs do
+  = f.inputs 'Basic', id: 'basic' do
     = f.input :name
     = f.input :price
     = f.input :sale_by_day
     = f.input :initial_price
     = f.input :public_time, :as => :datetime_picker
-  = f.semantic_fields_for :images do |image_f|
-    = image_f.inputs :photo, as: :file
+  = f.inputs 'Images' do
+    = f.semantic_fields_for :images do |image_f|
+      = image_f.inputs :photo, as: :file
   = f.actions
