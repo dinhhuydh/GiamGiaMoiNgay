@@ -6,26 +6,36 @@
   .span8
     %strong
       = product.name
-    %p
-      = t('product.price')
-      = product.price
 
-    %p
-      = t('product.initial_price')
-      = product.initial_price
+    %ul.nav.nav-tabs#product-tabs
+      %li.active#basic-tab
+        = link_to 'Basic', '#basic',  'data-toggle' => 'tab'
+      %li#detail-tab
+        = link_to 'Details', '#details', 'data-toggle' => 'tab'
+    .tab-content
+      .tab-pane.active#basic
+        %p
+          = t('product.price')
+          = product.price
 
-    %p.lead.text-success
-      = t('product.already_descreased')
-      = product.initial_price - product.price
+        %p
+          = t('product.initial_price')
+          = product.initial_price
 
-    %p
-      = t('product.public_time')
-      = product.public_time
+        %p.lead.text-success
+          = t('product.already_descreased')
+          = product.initial_price - product.price
 
-    %p
-      = t('product.sale_off_time')
-      = product.next_sale_off_time
-      #count-down-time
+        %p
+          = t('product.public_time')
+          = product.public_time
+
+        %p
+          = t('product.sale_off_time')
+          = product.next_sale_off_time
+          #count-down-time
+      .tab-pane#details
+        This is descriptioin for the vaio
 
     - if current_user
       - if current_user.follow?(product)
@@ -55,4 +65,5 @@
     var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
 
     $('#count-down-time').countdown({until: nextSaleOffTime, compact: true});
+
   });
