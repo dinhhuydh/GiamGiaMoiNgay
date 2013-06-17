@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616110441) do
+ActiveRecord::Schema.define(:version => 20130617021314) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(:version => 20130616110441) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "products_orders", ["product_id", "user_id"], :name => "index_products_orders_on_product_id_and_user_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",                                   :null => false
