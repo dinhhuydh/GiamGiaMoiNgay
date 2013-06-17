@@ -31,8 +31,10 @@ GiamGiaMoiNgay::Application.routes.draw do
   #     end
   #   end
   resources :products do
-    get :follow
-    get :buy
+    member do
+      get :follow
+      get :buy
+    end
   end
 
   # Sample resource route with sub-resources:
