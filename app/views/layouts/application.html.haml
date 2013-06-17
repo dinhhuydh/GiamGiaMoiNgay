@@ -24,9 +24,9 @@
             %ul.nav.pull-right
               - if current_user
                 %li= link_to current_user.username, '#'
-                %li= link_to "Log out", destroy_user_session_path, method: :delete
+                %li= link_to t('logout'), destroy_user_session_path, method: :delete
               - else
-                %li= link_to "Log in", new_user_session_path
+                %li= link_to t('logout'), new_user_session_path
                 %li= link_to "Signup", new_user_registration_path
           / /.nav-collapse
     .container-fluid
