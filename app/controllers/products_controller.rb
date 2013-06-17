@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:index, :show]
+  skip_before_filter :authenticate_user!, only: [:index, :show, :price]
   before_filter :authenticate_admin_user!, only: [:new, :create, :edit, :update]
 
   expose(:product)
@@ -45,5 +45,10 @@ class ProductsController < ApplicationController
   def buy
     current_user.order(product)
     render json: {ordersCount: product.orders.count}
+  end
+
+  def price
+    render  json: { price: product.price,
+                    nextSaleOffTime: product.next_sale_off_time }
   end
 end

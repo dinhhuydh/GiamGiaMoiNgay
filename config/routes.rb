@@ -34,6 +34,7 @@ GiamGiaMoiNgay::Application.routes.draw do
     member do
       get :follow
       get :buy
+      get :price
     end
   end
 
