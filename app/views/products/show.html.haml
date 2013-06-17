@@ -35,7 +35,7 @@
           = product.next_sale_off_time
           #count-down-time
       .tab-pane#details
-        This is descriptioin for the vaio
+        = product.description
 
     - if current_user
       - if current_user.follow?(product)

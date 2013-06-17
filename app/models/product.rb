@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   attr_accessible :name, :price, :sale_by_day,
                   :initial_price, :public_time, :slug,
                   :images, :images_attributes,
-                  :aasm_state
+                  :aasm_state, :description
 
   validates_presence_of :name, :price, :sale_by_day,
                         :initial_price, :public_time

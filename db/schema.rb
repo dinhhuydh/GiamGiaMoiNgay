@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617021314) do
+ActiveRecord::Schema.define(:version => 20130617021843) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130617021314) do
     t.datetime "public_time"
     t.string   "slug"
     t.string   "aasm_state",    :default => "private"
+    t.text     "description",   :default => ""
   end
 
   create_table "products_consumers", :force => true do |t|
