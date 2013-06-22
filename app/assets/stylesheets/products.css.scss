@@ -5,3 +5,22 @@
 #count-down-time {
   width: 200px;
 }
+
+.tab-pane {
+  ul {
+    li {
+      display: inline-block;
+      list-style-type: none;
+      margin: 5px;
+      height: 200px;
+      width: 200px;
+
+      a {
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}

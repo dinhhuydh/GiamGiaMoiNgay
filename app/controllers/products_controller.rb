@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
   expose(:products)
 
   def index
+    @newest_products = Product.newest
+    @much_price_down_products = Product.much_price_down
   end
 
   def show

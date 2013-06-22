@@ -11,4 +11,7 @@ vn:
     watch: Theo dõi giá
     buy: Mua ngay
     already_descreased: Đã giảm
+  products:
+    newest: Mới nhất
+    much_price_down: Giảm nhiều
   logout: Thoát

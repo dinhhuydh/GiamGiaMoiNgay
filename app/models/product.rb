@@ -24,6 +24,9 @@ class Product < ActiveRecord::Base
 
   after_create :set_price_down_schedule
 
+  scope :newest, order('created_at asc')
+  scope :much_price_down, order('created_at desc')
+
   aasm do
     state :private, initial: true
     state :public

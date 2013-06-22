@@ -1,0 +1,8 @@
+%ul
+  - products.each do |product|
+    %li
+      .product-info
+        = product.name
+      .product-image
+        %a{href: product_path(product)}
+          = product_image(product)

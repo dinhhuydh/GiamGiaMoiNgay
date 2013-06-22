@@ -1,6 +1,11 @@
-Welcome to GiamGiaMoiNgay
-#ul
-- products.each do |product|
-  #li{style: 'width: 100px; height: 100px'}
-    %a{href: product_path(product)}
-      = product_image(product)
+%ul.nav.nav-tabs
+  %li.active
+    = link_to t('products.newest'), '#newest-products', 'data-toggle' => 'tab'
+  %li
+    = link_to t('products.much_price_down'), '#much-price-down', 'data-toggle' => 'tab'
+
+.tab-content
+  .tab-pane.active#newest-products
+    = render partial: 'products', locals: {products: @newest_products}
+  .tab-pane#much-price-down
+    = render partial: 'products', locals: {products: @much_price_down_products}
