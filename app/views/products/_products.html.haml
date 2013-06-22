@@ -2,7 +2,14 @@
   - products.each do |product|
     %li
       .product-info
-        = product.name
+        .name
+          = product.name
+        .price
+          = product.price
+        .sale-off
+          = product.initial_price - product.price
       .product-image
         %a{href: product_path(product)}
           = product_image(product)
+      .product-more-info
+        = product.followers.count
