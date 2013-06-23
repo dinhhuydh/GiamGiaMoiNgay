@@ -18,3 +18,4 @@ public/system/**
 config/s3.yml
 public/assets
 chromedriver.log
+credentials.txt
