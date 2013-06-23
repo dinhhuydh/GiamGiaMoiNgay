@@ -47,6 +47,7 @@ gem 'jquery-rails', '2.3.0'
 
 group :development do
   gem 'sextant'
+  gem 'letter_opener'
 end
 
 group :development, :test do
