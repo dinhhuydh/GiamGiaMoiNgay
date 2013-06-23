@@ -28,12 +28,13 @@
 
         %p
           = t('product.public_time')
-          = product.public_time
+          #public-time
 
         %p
           = t('product.sale_off_time')
-          = product.next_sale_off_time
+          #next-sale-off-time
           #count-down-time
+
       .tab-pane#details
         = product.description
 
@@ -63,6 +64,9 @@
 :javascript
   $(function() {
     var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
+    var publicTime = new Date("#{product.public_time}");
+    $('#public-time').text(publicTime);
+    $('#next-sale-off-time').text(nextSaleOffTime);
 
     $('#count-down-time').countdown({until: nextSaleOffTime, compact: true, onExpiry: checkProductPrice});
 
