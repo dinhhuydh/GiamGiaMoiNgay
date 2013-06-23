@@ -61,7 +61,7 @@ class Product < ActiveRecord::Base
   end
 
   def price_down_schedule
-    if price - sale_by_day > 0
+    if !sold? && (price - sale_by_day > 0)
       self.price = self.price - sale_by_day
       self.save
       self.delay(run_at: self.next_sale_off_time).price_down_schedule
