@@ -65,6 +65,7 @@ class Product < ActiveRecord::Base
       self.price = self.price - sale_by_day
       self.save
       self.delay(run_at: self.next_sale_off_time).price_down_schedule
+      ProductMailer.price_descreased(self).deliver
     end
   end
 end

@@ -1,0 +1,12 @@
+%p
+  Sản phẩm:
+  = @product.name
+
+%p
+  = t('product.price')
+  = @product.price
+
+%p
+  Đã giảm:
+  = @product.initial_price - @product.price
+

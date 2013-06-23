@@ -14,4 +14,5 @@ vn:
   products:
     newest: Mới nhất
     much_price_down: Giảm nhiều
+    price_descreased: "%{product_name}: giá còn %{product_price}"
   logout: Thoát
