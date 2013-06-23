@@ -54,6 +54,8 @@ class Product < ActiveRecord::Base
     next_time
   end
 
+  private
+
   def set_price_down_schedule
     self.delay(run_at: self.next_sale_off_time).price_down_schedule
   end
