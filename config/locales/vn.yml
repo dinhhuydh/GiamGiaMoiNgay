@@ -11,8 +11,9 @@ vn:
     watch: Theo dõi giá
     buy: Mua ngay
     already_descreased: Đã giảm
+    price_descreased: "%{product_name}: giá còn %{product_price}"
+    already_sold: "%{product_name}: đã được bán"
   products:
     newest: Mới nhất
     much_price_down: Giảm nhiều
-    price_descreased: "%{product_name}: giá còn %{product_price}"
   logout: Thoát
