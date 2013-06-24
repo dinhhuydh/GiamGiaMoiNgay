@@ -1,7 +1,7 @@
 #product(ng-controller="ProductsCtrl" data-product-id="#{product.id}" data-followers-count="#{product.followers.count}" data-product-price="#{product.price}")
   .span3
     = product_image(product)
-    %button.btn.icon-eye-open
+    .icon-eye-open
       {{followersCount}}
   .span8
     %strong
