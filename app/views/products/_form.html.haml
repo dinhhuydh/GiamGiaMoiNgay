@@ -10,3 +10,15 @@
     = f.semantic_fields_for :images do |image_f|
       = image_f.inputs :photo, as: :file
   = f.actions
+
+:javascript
+  $(function() {
+    var publicTime = moment(new Date("#{product.public_time}"))
+    $('#product_public_time').val(publicTime.format('YYYY-MM-DDThh:mm:ss'));
+
+    $('form').submit(function(){
+      var localPublicTime = $('#product_public_time').val();
+      var utcPublicTime = moment(localPublicTime).utc().format('YYYY-MM-DDThh:mm:ss');
+      $('#product_public_time').val(utcPublicTime);
+    })
+  })
