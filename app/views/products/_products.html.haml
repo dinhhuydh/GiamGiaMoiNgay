@@ -3,7 +3,7 @@
     %li
       .product-info
         .name
-          = product.name
+          %strong= link_to product.name, product_path(product)
         .price
           = product.price
         .sale-off
