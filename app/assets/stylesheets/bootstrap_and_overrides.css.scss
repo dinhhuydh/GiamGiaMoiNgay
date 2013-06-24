@@ -5,3 +5,14 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+form#product-search {
+  margin: 0;
+  padding-top: 5px;
+  display: inline-block;
+
+  button {
+    margin-left: 5px;
+    margin-bottom: 8px;
+  }
+}
