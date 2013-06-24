@@ -11,13 +11,11 @@ class ProductMailer < ActionMailer::Base
     end
   end
 
-  def already_sold(product)
+  def already_sold(product, follower)
     @product = product
-    product.followers.each do |user|
-      mail( to: user.email,
-            subject: t('product.already_sold', locale: I18n.default_locale,
-                                                product_name: product.name,
-                                                product_price: product.price))
-    end
+    mail( to: follower.email,
+          subject: t('product.already_sold', locale: I18n.default_locale,
+                                              product_name: product.name,
+                                              product_price: product.price))
   end
 end

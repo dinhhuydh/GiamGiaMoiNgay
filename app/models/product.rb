@@ -42,7 +42,7 @@ class Product < ActiveRecord::Base
     end
 
     event :be_sold do
-      transitions :from => :confirming, :to => :sold, :on_transition => Proc.new{|obj| obj.already_sold_notification }
+      transitions :from => :confirming, :to => :sold, :on_transition => Proc.new{|obj| obj.delay.already_sold_notification }
     end
   end
 
@@ -70,6 +70,8 @@ class Product < ActiveRecord::Base
   end
 
   def already_sold_notification
-    ProductMailer.delay.already_sold(self)
+    followers.each do |follower|
+      ProductMailer.already_sold(self, follower).deliver
+    end
   end
 end
