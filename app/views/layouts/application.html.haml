@@ -16,10 +16,7 @@
       .navbar-inner
         .container-fluid
           %a.brand{:href => root_path} GiamGiaMoiNgay
-          %form.form-search#product-search
-            %input.inut-medium.search-query
-            %button.btn.btn-mini.btn-primary
-              Search
+          = render 'search/form'
           %ul.nav.pull-right
             - if current_user
               %li= link_to current_user.username, '#'

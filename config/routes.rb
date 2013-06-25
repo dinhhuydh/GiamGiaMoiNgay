@@ -38,6 +38,8 @@ GiamGiaMoiNgay::Application.routes.draw do
     end
   end
 
+  post '/search/products' => 'search#products', :as => :products_search
+
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
