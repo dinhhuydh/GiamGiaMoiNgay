@@ -1,8 +1,13 @@
+require 'texticle/searchable'
+
 class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
   include AASM
+
+  #TODO seach on name and description
+  extend Searchable(:name)
 
   attr_accessible :name, :price, :sale_by_day,
                   :initial_price, :public_time, :slug,
