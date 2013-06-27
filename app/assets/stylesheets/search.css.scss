@@ -10,3 +10,17 @@
     margin-left: 10px;
   }
 }
+
+.product-result {
+  width: 100%;
+  border-color: red;
+  border-style: solid;
+
+  .product-image {
+    display: inline-block;
+  }
+
+  .product-info {
+    display: inline-block;
+  }
+}

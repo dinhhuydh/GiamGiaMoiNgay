@@ -1,3 +1,8 @@
 - @products.each do |product|
-  = product.name
-  = product.description
+  .product-result
+    .product-image
+      = product_image(product, 'thumb')
+    .product-info
+      = product.name
+      = product.price
+      = product.description
