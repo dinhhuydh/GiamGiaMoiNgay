@@ -1,5 +1,7 @@
 GiamGiaMoiNgay::Application.routes.draw do
-  devise_for :users
+  devise_for :users, path: 'nguoi-dung' do
+    get 'sign_in' => 'devise/sessions#new', path: 'dang-nhap'
+  end
 
   root :to => 'products#index'
   ActiveAdmin.routes(self)
