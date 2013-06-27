@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   def index
     @newest_products = Product.newest
     @much_price_down_products = Product.much_price_down
+    @following_products = current_user ? current_user.followed_products : []
   end
 
   def show
