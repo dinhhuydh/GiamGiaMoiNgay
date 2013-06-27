@@ -1,12 +1,11 @@
 #product(ng-controller="ProductsCtrl" data-product-id="#{product.id}" data-followers-count="#{product.followers.count}" data-product-price="#{product.price}")
-  .span3
+  %strong= product.name
+  .clearfix
+  #product-images.span3
     = product_image(product)
     .icon-eye-open
       {{followersCount}}
-  .span8
-    %strong
-      = product.name
-
+  #product-info.span8
     %ul.nav.nav-tabs#product-tabs
       %li.active#basic-tab
         = link_to 'Basic', '#basic',  'data-toggle' => 'tab'
