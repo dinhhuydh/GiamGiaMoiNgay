@@ -8,7 +8,8 @@
     = f.input :public_time, :as => :datetime_picker
   = f.inputs 'Images' do
     = f.semantic_fields_for :images do |image_f|
-      = image_f.inputs :photo, as: :file
+      = image_f.inputs do
+        = image_f.input :photo, as: :file, label: image_f.object.photo_file_name
   = f.actions
 
 :javascript
