@@ -2,7 +2,12 @@
   %strong= product.name
   .clearfix
   #product-images.span3
-    = product_image(product)
+    #first-image
+      = product_image(product)
+    #other-images
+      - product.images.each do |image|
+        = image_tag image.photo.url(:thumb)
+    .clearfix
     .icon-eye-open
       {{followersCount}}
   #product-info.span8
