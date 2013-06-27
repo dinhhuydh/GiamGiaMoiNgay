@@ -9,6 +9,19 @@ describe User do
   it { should have_many(:products_consumers) }
   it { should have_many(:bought_products) }
 
+  describe 'callbacks' do
+    it 'should create setting for the user' do
+      expect {
+        subject
+      }.to change(Setting, :count).by(1)
+      subject.setting.should_not be_nil
+    end
+
+    it 'should set username' do
+      subject.username.should_not be_nil
+    end
+  end
+
   describe '#follow' do
     it 'should create a new relationship' do
       expect{
@@ -50,6 +63,5 @@ describe User do
         subject.order(product)
       }.to change(ProductsOrder, :count).by(1)
     end
-
   end
 end

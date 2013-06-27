@@ -15,7 +15,10 @@ class User < ActiveRecord::Base
   has_many :products_orders, dependent: :destroy, foreign_key: 'user_id'
   has_many :ordered_products, through: :products_orders, source: :product
 
+  has_one :setting, dependent: :destroy
+
   after_create :set_default_username
+  after_create :create_setting
 
   default_scope order('users.id asc')
 
