@@ -29,6 +29,7 @@ class Product < ActiveRecord::Base
 
   after_create :set_price_down_schedule
 
+  default_scope order('id asc')
   scope :newest, order('created_at asc')
   scope :much_price_down, order('created_at desc')
 
