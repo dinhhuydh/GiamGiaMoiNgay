@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
 
   after_create :set_default_username
 
+  default_scope order('users.id asc')
+
   def follow(product)
     products_followers.create(product_id: product.id)
   end
