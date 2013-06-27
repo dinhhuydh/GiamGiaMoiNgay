@@ -38,7 +38,7 @@ GiamGiaMoiNgay::Application.routes.draw do
     end
   end
 
-  post '/search/products' => 'search#products', :as => :products_search
+  post '/search/products' => 'search#products', :as => :products_search, :path => 'tim-kiem/san-pham'
 
   # Sample resource route with sub-resources:
   #   resources :products do
