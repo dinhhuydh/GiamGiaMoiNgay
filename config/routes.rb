@@ -30,7 +30,7 @@ GiamGiaMoiNgay::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  resources :products do
+  resources :products, path: 'san-pham' do
     member do
       get :follow
       get :buy
