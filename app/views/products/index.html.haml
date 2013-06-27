@@ -3,8 +3,9 @@
     = link_to t('products.newest'), '#newest-products', 'data-toggle' => 'tab'
   %li
     = link_to t('products.much_price_down'), '#much-price-down', 'data-toggle' => 'tab'
-  %li
-    = link_to t('products.user_following'), '#user-following', 'data-toggle' => 'tab'
+  - if current_user
+    %li
+      = link_to t('products.user_following'), '#user-following', 'data-toggle' => 'tab'
 
 .tab-content
   .tab-pane.active#newest-products
