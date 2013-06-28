@@ -13,6 +13,7 @@ vn:
     already_descreased: Đã giảm
     price_descreased: "%{product_name}: giá còn %{product_price}"
     already_sold: "%{product_name}: đã được bán"
+    new_product: "Sản phẩm mới: %{product_name}"
   products:
     newest: Mới nhất
     much_price_down: Giảm nhiều

@@ -18,4 +18,12 @@ class ProductMailer < ActionMailer::Base
                                               product_name: product.name,
                                               product_price: product.price))
   end
+
+  def public_state(product, user)
+    @product = product
+    mail( to: user.email,
+          subject: t('product.new_product', locale: I18n.default_locale,
+                                              product_name: product.name,
+                                              product_price: product.price))
+  end
 end

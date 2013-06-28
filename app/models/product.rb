@@ -40,7 +40,7 @@ class Product < ActiveRecord::Base
     state :sold
 
     event :be_public do
-      transitions :from => :private, :to => :public
+      transitions :from => :private, :to => :public, :on_transition => Proc.new{|obj| obj.delay.public_state_notification }
     end
 
     event :be_confirming do
@@ -78,6 +78,12 @@ class Product < ActiveRecord::Base
   def already_sold_notification
     followers.each do |follower|
       ProductMailer.already_sold(self, follower).deliver
+    end
+  end
+
+  def public_state_notification
+    User.enjoy_public_products.each do |user|
+      ProductMailer.public_state(self, user).deliver
     end
   end
 end

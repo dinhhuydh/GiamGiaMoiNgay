@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   after_create :create_setting
 
   default_scope order('users.id asc')
+  scope :enjoy_public_products, includes(:setting).where('settings.public_product_notification = true')
 
   def follow(product)
     products_followers.create(product_id: product.id)
