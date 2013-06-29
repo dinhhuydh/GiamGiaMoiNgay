@@ -124,6 +124,8 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.3.0)
       addressable (~> 2.3)
+    lazyload-rails (0.2.0)
+      nokogiri (~> 1.5)
     letter_opener (1.1.1)
       launchy (~> 2.2)
     mail (2.5.4)
@@ -250,6 +252,7 @@ DEPENDENCIES
   friendly_id
   haml
   jquery-rails (= 2.3.0)
+  lazyload-rails
   letter_opener
   paperclip (~> 3.0)
   pg

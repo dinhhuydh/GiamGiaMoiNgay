@@ -18,6 +18,7 @@ gem 'delayed_job_active_record'
 gem 'aasm'
 gem 'aws-sdk'
 gem 'texticle', '2.0', :require => 'texticle/rails'
+gem 'lazyload-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -14,3 +14,9 @@
     = render partial: 'products', locals: {products: @much_price_down_products}
   .tab-pane#user-following
     = render partial: 'products', locals: {products: @following_products}
+
+:javascript
+  $(function() {
+    $("img").lazyload();
+  })
+

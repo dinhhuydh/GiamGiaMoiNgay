@@ -67,6 +67,7 @@
 
 :javascript
   $(function() {
+    $('img').lazyload();
     var nextSaleOffTime = new Date("#{product.next_sale_off_time}");
     var publicTime = new Date("#{product.public_time}");
     $('#public-time').text(publicTime);
