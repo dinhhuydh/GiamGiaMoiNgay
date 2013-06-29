@@ -20,15 +20,15 @@
       .tab-pane.active#basic
         %p
           = t('product.price')
-          = product.price
+          = humanize_vnd_price(product.price)
 
         %p
           = t('product.initial_price')
-          = product.initial_price
+          =  humanize_vnd_price product.initial_price
 
         %p.lead.text-success
           = t('product.already_descreased')
-          = product.initial_price - product.price
+          = humanize_vnd_price(product.initial_price - product.price)
 
         %p
           = t('product.public_time')

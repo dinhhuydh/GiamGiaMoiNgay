@@ -5,9 +5,9 @@
         .name
           %strong= link_to truncate(product.name, length: 15), product_path(product)
         .price
-          = product.price
+          = humanize_vnd_price product.price
         .sale-off
-          = product.initial_price - product.price
+          = humanize_vnd_price(product.initial_price - product.price)
       .product-image
         %a{href: product_path(product)}
           = product_image(product)
