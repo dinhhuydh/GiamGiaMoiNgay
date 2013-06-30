@@ -60,3 +60,13 @@ end
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
+
+def helper
+  Helper.instance
+end
+
+class Helper
+  include Singleton
+  include ActionView::Helpers
+  include ProductsHelper
+end
