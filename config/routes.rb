@@ -1,6 +1,8 @@
 GiamGiaMoiNgay::Application.routes.draw do
-  devise_for :users, path: 'nguoi-dung' do
-    get 'sign_in' => 'devise/sessions#new', path: 'dang-nhap'
+  devise_for :users, path: 'nguoi-dung'
+
+  devise_scope :users do
+    get 'sign_in', to: 'devise/sessions#new', path: 'dang-nhap'
   end
 
   root :to => 'products#index'
